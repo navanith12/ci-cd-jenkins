@@ -7,7 +7,7 @@ pipeline {
         stage ('Build') {
             steps {
                 withmaven(maven : 'maven-3.6.1'){
-                        bat "mvn clean package"
+                        bat "clean compile package"
                 }
             }
         }
