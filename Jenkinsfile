@@ -1,23 +1,18 @@
-pipeline 
-{
+pipeline {
 
     agent any
-	tools {
-        maven 'Maven-3.6.1'
-        jdk 'JDK 12.0.2'
-    }
+
     stages {
-        stage('Build') {
+
+        stage ('Build') {
             steps {
-                bat "printenv"
-                withMaven(mavenSettingsConfig: 'maven-settings-global') {
-                    bat "mvn clean package"
+                withMaven(maven : 'maven_3.6.1'){
+                        bat "clean compile package"
                 }
             }
-        }     
-    }    
+        }
 
-        stage('Deploy') {
+        stage ('Deploy') {
             steps {
 
                 withCredentials([[$class          : 'UsernamePasswordMultiBinding',
@@ -34,3 +29,5 @@ pipeline
         }
 
     }
+
+}
