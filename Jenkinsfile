@@ -6,8 +6,8 @@ pipeline {
 
         stage ('Build') {
             steps {
-                Maven(maven: 'maven_3_6_1') {
-                    bat "mvn clean compile"
+                maven(maven: 'Maven_3_6_1') {
+                    bat "mvn clean package"
                 }
             }
         }
