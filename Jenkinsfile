@@ -1,16 +1,20 @@
 pipeline {
 
     agent any
-
+	tools {
+        maven 'apache-maven-3.6.1'
+        jdk 'jdk1.8'
+    }
     stages {
-
-        stage ('Build') {
+        stage('Build') {
             steps {
-                withMaven(maven : 'maven_3.6.0'){
-                        bat "clean compile package"
+                bat "printenv"
+                withMaven(mavenSettingsConfig: 'maven-settings-global') {
+                    bat "mvn clean package"
                 }
             }
-        }
+        }     
+    }    
 
         stage ('Deploy') {
             steps {
