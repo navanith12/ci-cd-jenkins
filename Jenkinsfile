@@ -3,7 +3,7 @@ pipeline
 
     agent any
 	tools {
-        maven 'maven-3.6.1'
+        maven 'Maven-3.6.1'
         jdk 'JDK 12.0.2'
     }
     stages {
@@ -17,7 +17,7 @@ pipeline
         }     
     }    
 
-        stage ('Deploy') {
+        stage('Deploy') {
             steps {
 
                 withCredentials([[$class          : 'UsernamePasswordMultiBinding',
