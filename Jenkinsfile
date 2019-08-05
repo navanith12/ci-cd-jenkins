@@ -7,7 +7,7 @@ pipeline {
         stage ('Build') {
             steps {
                 withMaven(maven : 'D:\Maven\apache-maven-3.6.1'){
-                        bat "clean compile test"
+                        sh 'clean compile test'
                 }
             }
         }
@@ -20,9 +20,9 @@ pipeline {
                                   usernameVariable: 'thisisnikhil86@gmail.com',
                                   passwordVariable: 'Super@8515']]) {
 
-                    bat "C:/Program Files/Cloud Foundry/cf login -a http://api.run.pivotal.io -u $USERNAME -p $PASSWORD"
+                    sh 'C:/Program Files/Cloud Foundry/cf login -a http://api.run.pivotal.io -u $USERNAME -p $PASSWORD'
 		
-                    bat "C:/Program Files/Cloud Foundry/cf push"
+                    sh 'C:/Program Files/Cloud Foundry/cf push'
                 }
             }
 
