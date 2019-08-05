@@ -6,7 +6,7 @@ pipeline {
 
         stage ('Build') {
             steps {
-                withMaven(maven : 'maven-3.6.1'){
+                withMaven(maven : 'D:\Maven\apache-maven-3.6.1'){
                         bat "clean compile test"
                 }
             }
