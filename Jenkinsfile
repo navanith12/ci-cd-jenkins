@@ -7,11 +7,10 @@ pipeline {
         stage ('Build') {
             steps {
                 withMaven(maven : 'apache-maven-3.6.1'){
-                        bat "clean compile test"
+                        bat "clean compile package"
                 }
             }
         }
-
         stage ('Deploy') {
             steps {
 
